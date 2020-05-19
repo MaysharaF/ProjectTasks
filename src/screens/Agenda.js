@@ -160,4 +160,10 @@ const styles = StyleSheet.create({
   taskContainer: {
     flex: 7,
   },
+  iconBar: {
+    marginTop: Platform.OS === 'ios' ? 30 : 10,
+    marginHorizontal: 20,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
 });
