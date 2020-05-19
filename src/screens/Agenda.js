@@ -73,6 +73,19 @@ export default class Agenda extends Component {
         doneAt: new Date(),
       },
     ],
+    visibleTasks: [],
+    showDoneTasks: true,
+  };
+
+  filterTasks = () => {
+    let visibleTasks = null;
+    if (this.state.showDoneTasks) {
+      visibleTasks = [...this.state.tasks];
+    } else {
+      const pending = (task) => task.doneAt === null;
+      visibleTasks = this.state.tasks.filter(pending);
+    }
+    this.setState({visibleTasks});
   };
 
   toggleTask = (id) => {
