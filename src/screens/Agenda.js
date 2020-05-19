@@ -104,13 +104,22 @@ export default class Agenda extends Component {
       }
       return task;
     });
-    this.setState({tasks});
+    this.setState({tasks}, this.filterTasks);
   };
 
   render() {
     return (
       <View style={styles.container}>
         <ImageBackground source={todayImagem} style={styles.background}>
+          <View style={styles.iconBar}>
+            <TouchableOpacity onPress={this.toggleFilter}>
+              <Icon
+                name={this.state.showDoneTasks ? 'eye' : 'eye-slash'}
+                size={20}
+                color={commonStyles.colors.secondary}
+              />
+            </TouchableOpacity>
+          </View>
           <View style={styles.titleBar}>
             <Text style={styles.title}>Hoje</Text>
             <Text style={styles.subtitle}>
@@ -120,7 +129,7 @@ export default class Agenda extends Component {
         </ImageBackground>
         <View style={styles.taskContainer}>
           <FlatList
-            data={this.state.tasks}
+            data={this.state.visibleTasks}
             keyExtractor={(item) => `${item.id}`}
             renderItem={({item}) => (
               <Task {...item} toggleTask={this.toggleTask} />
