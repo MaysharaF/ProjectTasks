@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ImageBackground} from 'react-native';
+import {StyleSheet, Text, View, ImageBackground, FlatList} from 'react-native';
 import moment from 'moment';
 import 'moment/locale/pt-br';
 import todayImagem from '../../assets/imgs/today.jpg';
@@ -7,6 +7,83 @@ import commonStyles from '../commonStyles';
 import Task from '../components/Tasks';
 
 export default class Agenda extends Component {
+  state = {
+    tasks: [
+      {
+        id: Math.random(),
+        desc: 'Tarefa 1',
+        estimateAt: new Date(),
+        doneAt: new Date(),
+      },
+      {
+        id: Math.random(),
+        desc: 'Tarefa 2',
+        estimateAt: new Date(),
+        doneAt: null,
+      },
+      {
+        id: Math.random(),
+        desc: 'Tarefa 1',
+        estimateAt: new Date(),
+        doneAt: new Date(),
+      },
+      {
+        id: Math.random(),
+        desc: 'Tarefa 2',
+        estimateAt: new Date(),
+        doneAt: null,
+      },
+      {
+        id: Math.random(),
+        desc: 'Tarefa 1',
+        estimateAt: new Date(),
+        doneAt: new Date(),
+      },
+      {
+        id: Math.random(),
+        desc: 'Tarefa 2',
+        estimateAt: new Date(),
+        doneAt: null,
+      },
+      {
+        id: Math.random(),
+        desc: 'Tarefa 1',
+        estimateAt: new Date(),
+        doneAt: new Date(),
+      },
+      {
+        id: Math.random(),
+        desc: 'Tarefa 2',
+        estimateAt: new Date(),
+        doneAt: null,
+      },
+      {
+        id: Math.random(),
+        desc: 'Tarefa 1',
+        estimateAt: new Date(),
+        doneAt: new Date(),
+      },
+      {
+        id: Math.random(),
+        desc: 'Tarefa 2',
+        estimateAt: new Date(),
+        doneAt: null,
+      },
+      {
+        id: Math.random(),
+        desc: 'Tarefa 1',
+        estimateAt: new Date(),
+        doneAt: new Date(),
+      },
+      {
+        id: Math.random(),
+        desc: 'Tarefa 2',
+        estimateAt: new Date(),
+        doneAt: null,
+      },
+    ],
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -19,59 +96,10 @@ export default class Agenda extends Component {
           </View>
         </ImageBackground>
         <View style={styles.taskContainer}>
-          <Task desc="Tarefa Pendente" estimateAt={new Date()} doneAt={null} />
-          <Task
-            desc="Tarefa Concluída"
-            estimateAt={new Date()}
-            doneAt={new Date()}
-          />
-          <Task desc="Tarefa Pendente" estimateAt={new Date()} doneAt={null} />
-          <Task
-            desc="Tarefa Concluída"
-            estimateAt={new Date()}
-            doneAt={new Date()}
-          />
-          <Task desc="Tarefa Pendente" estimateAt={new Date()} doneAt={null} />
-          <Task
-            desc="Tarefa Concluída"
-            estimateAt={new Date()}
-            doneAt={new Date()}
-          />
-          <Task desc="Tarefa Pendente" estimateAt={new Date()} doneAt={null} />
-          <Task
-            desc="Tarefa Concluída"
-            estimateAt={new Date()}
-            doneAt={new Date()}
-          />
-          <Task desc="Tarefa Pendente" estimateAt={new Date()} doneAt={null} />
-          <Task
-            desc="Tarefa Concluída"
-            estimateAt={new Date()}
-            doneAt={new Date()}
-          />
-          <Task desc="Tarefa Pendente" estimateAt={new Date()} doneAt={null} />
-          <Task
-            desc="Tarefa Concluída"
-            estimateAt={new Date()}
-            doneAt={new Date()}
-          />
-          <Task desc="Tarefa Pendente" estimateAt={new Date()} doneAt={null} />
-          <Task
-            desc="Tarefa Concluída"
-            estimateAt={new Date()}
-            doneAt={new Date()}
-          />
-          <Task desc="Tarefa Pendente" estimateAt={new Date()} doneAt={null} />
-          <Task
-            desc="Tarefa Concluída"
-            estimateAt={new Date()}
-            doneAt={new Date()}
-          />
-          <Task desc="Tarefa Pendente" estimateAt={new Date()} doneAt={null} />
-          <Task
-            desc="Tarefa Concluída"
-            estimateAt={new Date()}
-            doneAt={new Date()}
+          <FlatList
+            data={this.state.tasks}
+            keyExtractor={(item) => `${item.id}`}
+            renderItem={({item}) => <Task {...item} />}
           />
         </View>
       </View>
