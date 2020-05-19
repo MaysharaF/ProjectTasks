@@ -88,6 +88,10 @@ export default class Agenda extends Component {
     this.setState({visibleTasks});
   };
 
+  toggleFilter = () => {
+    this.setState({showDoneTasks: !this.state.showDoneTasks}, this.filterTasks);
+  };
+
   toggleTask = (id) => {
     const tasks = this.state.tasks.map((task) => {
       if (task.id === id) {
