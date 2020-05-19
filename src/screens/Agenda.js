@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ImageBackground, FlatList} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  FlatList,
+  TouchableOpacity,
+  Platform,
+} from 'react-native';
 import moment from 'moment';
 import 'moment/locale/pt-br';
 import todayImagem from '../../assets/imgs/today.jpg';
 import commonStyles from '../commonStyles';
 import Task from '../components/Tasks';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Agenda extends Component {
   state = {
@@ -62,24 +71,6 @@ export default class Agenda extends Component {
         desc: 'Tarefa 1',
         estimateAt: new Date(),
         doneAt: new Date(),
-      },
-      {
-        id: Math.random(),
-        desc: 'Tarefa 2',
-        estimateAt: new Date(),
-        doneAt: null,
-      },
-      {
-        id: Math.random(),
-        desc: 'Tarefa 1',
-        estimateAt: new Date(),
-        doneAt: new Date(),
-      },
-      {
-        id: Math.random(),
-        desc: 'Tarefa 2',
-        estimateAt: new Date(),
-        doneAt: null,
       },
     ],
   };
