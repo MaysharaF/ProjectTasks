@@ -80,6 +80,7 @@ export default class AddTask extends Component {
             onChangeText={(desc) => this.setState({desc})}
             value={this.state.desc}
           />
+          {datePicker}
 
           <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
             <TouchableOpacity onPress={this.props.onCancel}>
@@ -130,5 +131,12 @@ var styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#E3E3E3',
     borderRadius: 6,
+  },
+  date: {
+    fontFamily: commonStyles.fontFamily,
+    fontSize: 20,
+    marginLeft: 10,
+    marginTop: 10,
+    textAlign: 'center',
   },
 });
