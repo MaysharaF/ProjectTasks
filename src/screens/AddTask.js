@@ -8,6 +8,7 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import moment from 'moment';
 import commonStyles from '../commonStyles';
@@ -18,6 +19,10 @@ export default class AddTask extends Component {
   state = {...initialState};
 
   save = () => {
+    if (!this.state.desc.trim()) {
+      Alert.alert('Dados inválidos', 'Informe uma descrição para a tarefa');
+      return;
+    }
     const data = {...this.state};
     this.props.onSave(data);
     this.setState({...initialState});
@@ -62,3 +67,38 @@ export default class AddTask extends Component {
     );
   }
 }
+
+var styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+    justifyContent: 'space-between',
+  },
+  offset: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.7)',
+  },
+  button: {
+    margin: 20,
+    marginRight: 30,
+    color: commonStyles.colors.default,
+  },
+  header: {
+    fontFamily: commonStyles.fontFamily,
+    backgroundColor: commonStyles.colors.default,
+    color: commonStyles.colors.secondary,
+    textAlign: 'center',
+    padding: 15,
+    fontSize: 15,
+  },
+  input: {
+    fontFamily: commonStyles.fontFamily,
+    width: '90%',
+    height: 40,
+    marginTop: 10,
+    marginLeft: 10,
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: '#E3E3E3',
+    borderRadius: 6,
+  },
+});
