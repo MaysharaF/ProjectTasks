@@ -19,4 +19,12 @@ export default class Auth extends Component {
     password: '',
     confirmPassword: '',
   };
+
+  signinOrSignup = () => {
+    if (this.state.stageNew) {
+      Alert.alert('Sucesso!', 'Criar conta');
+    } else {
+      Alert.alert('Sucesso!', Logar);
+    }
+  };
 }
